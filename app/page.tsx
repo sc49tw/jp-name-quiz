@@ -52,12 +52,30 @@ export default function HomePage() {
     setIndex((prev) => (prev + 1) % filteredQuestions.length);
   };
 
-  // 預留給 AdSense（之後放廣告時會用到）
+  // Initialize AdSense after component mounts and ensure container is visible
   useEffect(() => {
-    try {
-      // @ts-ignore
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (err) {}
+    const initAd = () => {
+      try {
+        // @ts-ignore
+        if (window.adsbygoogle && !window.adsbygoogle.loaded) {
+          // @ts-ignore
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+        }
+      } catch (err) {
+        console.error('AdSense error:', err);
+      }
+    };
+
+    // Initialize ad after a short delay to ensure container is rendered
+    const timer = setTimeout(initAd, 100);
+    
+    // Also try to initialize when window loads if not already done
+    window.addEventListener('load', initAd);
+    
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('load', initAd);
+    };
   }, []);
 
   return (
@@ -201,13 +219,19 @@ export default function HomePage() {
           </>
         )}
 
-        {/* 廣告區塊 */}
-        <div className="mt-10 w-full">
+        {/* AdSense Ad Unit */}
+        <div className="mt-10 w-full" key="ad-container">
           <div className="text-center text-xs text-slate-400 mb-2">Advertisement</div>
-          <div className="bg-slate-100 rounded-lg p-4 flex items-center justify-center min-h-[90px]">
+          <div className="bg-slate-100 rounded-lg p-4 flex items-center justify-center min-h-[90px] w-full">
             <ins
               className="adsbygoogle"
-              style={{ display: 'block' }}
+              style={{
+                display: 'block',
+                minWidth: '320px',
+                minHeight: '90px',
+                width: '100%',
+                height: '100%'
+              }}
               data-ad-client="ca-pub-7828199437770684"
               data-ad-slot="3942777683"
               data-ad-format="auto"
