@@ -15,14 +15,18 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <head>
-        {/* AdSense script（之後換成你的 ca-pub） */}
-        <Script
-          id="adsense-script"
-          async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7828199437770684"
+        {/* 原生 AdSense script，Google 一定能抓到 */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7828199437770684"
           crossOrigin="anonymous"
-          strategy="afterInteractive"
         />
+
+        {/* 其他 head elements */}
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
+
 
       <body className="bg-slate-50 text-slate-800">
         {/* ------------------ NAVIGATION ------------------ */}
