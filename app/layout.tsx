@@ -18,8 +18,7 @@ export default function RootLayout({
         {/* AdSense script（之後換成你的 ca-pub） */}
         <Script
           id="adsense-script"
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7828199437770684"
+          async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7828199437770684"
           crossOrigin="anonymous"
           strategy="afterInteractive"
         />
