@@ -208,8 +208,8 @@ export default function HomePage() {
             <ins
               className="adsbygoogle"
               style={{ display: 'block' }}
-              data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-              data-ad-slot="YYYYYYYYYY"
+              data-ad-client="ca-pub-7828199437770684"
+              data-ad-slot="3942777683"
               data-ad-format="auto"
               data-full-width-responsive="true"
             ></ins>
