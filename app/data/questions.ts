@@ -1,17 +1,10 @@
-export type CelebrityQuestion = {
-  id: number;
-  nameKanji: string;   // 名人姓名（漢字）
-  choices: string[];   // 讀音選項（平假名）
-  answerIndex: number; // 正確選項 index
-  description: string; // 簡短介紹
-  category: string;    // 類別（作家、監督、歴史人物等）
-};
+import { CelebrityQuestion } from './types';
 
-export const QUESTIONS: CelebrityQuestion[] = [
-  { id: 1, nameKanji: "木村拓哉", choices: ["きむらたくや", "きむらひろや", "きむらたくみ", "きむらまさや"], answerIndex: 1, description: "日本の俳優で、SMAPの元メンバー。ドラマや映画で活躍。", category: "俳優" },
+export const baseQuestions: CelebrityQuestion[] = [
+  { id: 1, nameKanji: "木村拓哉", choices: ["きむらたくや", "きむらひろや", "きむらたくみ", "きむらまさや"], answerIndex: 2, description: "日本の俳優で、SMAPの元メンバー。ドラマや映画で活躍。", category: "俳優" },
   { id: 2, nameKanji: "綾瀬はるか", choices: ["あやせはるか", "あやせゆか", "あやせはるみ", "あやせみか"], answerIndex: 2, description: "日本の女優。NHK大河ドラマや映画で主演を務める。", category: "女優" },
   { id: 3, nameKanji: "明石家さんま", choices: ["あかしやさんま", "あかしやまさみ", "あかしやさんた", "あかしやたかま"], answerIndex: 0, description: "お笑いタレント。長寿番組の司会者として有名。", category: "タレント" },
-  { id: 4, nameKanji: "浜崎あゆみ", choices: ["はまさきあゆみ", "はまざきあゆか", "はまさきみゆき", "はまざきあゆみ"], answerIndex: 1, description: "J-POP歌手。平成の歌姫として数々のヒット曲を生む。", category: "歌手" },
+  { id: 4, nameKanji: "浜崎あゆみ", choices: ["はまさきあゆみ", "はまざきあゆか", "はまさきみゆき", "はまざきあゆみ"], answerIndex: 3, description: "J-POP歌手。平成の歌姫として数々のヒット曲を生む。", category: "歌手" },
   { id: 5, nameKanji: "神谷浩史", choices: ["かみやひろし", "かみやひろき", "かみやたかし", "かみやひろみ"], answerIndex: 3, description: "人気声優。アニメ『進撃の巨人』のリヴァイ役で知られる。", category: "声優" },
   { id: 6, nameKanji: "ダウンタウン浜田雅功", choices: ["はまだまさとし", "はまだまさひろ", "はまだたかとし", "はまだまさのり"], answerIndex: 0, description: "お笑い芸人。ダウンタウンのツッコミ担当。", category: "お笑い芸人" },
   { id: 7, nameKanji: "村上春樹", choices: ["むらかみはるき", "むらかみしゅんき", "むらかみはるみ", "むらかみしゅんじ"], answerIndex: 0, description: "小説家。『ノルウェイの森』などのベストセラー著者。", category: "作家" },
@@ -23,27 +16,27 @@ export const QUESTIONS: CelebrityQuestion[] = [
   { id: 13, nameKanji: "福山雅治", choices: ["ふくやままさはる", "ふくやまひろはる", "ふくやままさき", "ふくやまひろし"], answerIndex: 3, description: "俳優兼歌手。ドラマ『ガリレオ』シリーズで人気。", category: "俳優" },
   { id: 14, nameKanji: "新垣結衣", choices: ["あらがきゆい", "あらがきゆき", "あらきゆい", "あらがきみい"], answerIndex: 2, description: "女優。ドラマ『逃げ恥』で主演しブレイク。", category: "女優" },
   { id: 15, nameKanji: "米津玄師", choices: ["よねづけんし", "よねづげんし", "よねづけんじ", "よねづげんき"], answerIndex: 0, description: "シンガーソングライター。『Lemon』が大ヒット。", category: "歌手" },
-  { id: 16, nameKanji: "花澤香菜", choices: ["はなざわかな", "はなざわかお", "はなざわみか", "はなざわかなえ"], answerIndex: 3, description: "声優。アニメ『化物語』の千石撫子役など。", category: "声優" },
+  { id: 16, nameKanji: "花澤香菜", choices: ["はなざわかな", "はなざわかお", "はなざわみか", "はなざわかなえ"], answerIndex: 0, description: "声優。アニメ『化物語』の千石撫子役など。", category: "声優" },
   { id: 17, nameKanji: "松本人志", choices: ["まつもとひとし", "まつもとひろし", "まつもとひとみ", "まつもとたかし"], answerIndex: 0, description: "お笑い芸人。ダウンタウンのボケ担当。", category: "お笑い芸人" },
-  { id: 18, nameKanji: "東野圭吾", choices: ["ひがしのけいご", "ひがしのけいこ", "とうのけいご", "ひがしのたけご"], answerIndex: 1, description: "ミステリー作家。『白夜行』などのヒット作。", category: "作家" },
-  { id: 19, nameKanji: "是枝裕和", choices: ["これえだひろかず", "これえだひろき", "これだひろかず", "これえだゆうかず"], answerIndex: 3, description: "映画監督。カンヌ受賞作『万引き家族』監督。", category: "監督" },
+  { id: 18, nameKanji: "東野圭吾", choices: ["ひがしのけいご", "ひがしのけいこ", "とうのけいご", "ひがしのたけご"], answerIndex: 0, description: "ミステリー作家。『白夜行』などのヒット作。", category: "作家" },
+  { id: 19, nameKanji: "是枝裕和", choices: ["これえだひろかず", "これえだひろき", "これだひろかず", "これえだゆうかず"], answerIndex: 0, description: "映画監督。カンヌ受賞作『万引き家族』監督。", category: "監督" },
   { id: 20, nameKanji: "利根川進", choices: ["とねがわすすむ", "とねがわしん", "とねかわすすむ", "とねがわひろむ"], answerIndex: 2, description: "生理学者。ノーベル生理学・医学賞受賞者。", category: "科学者" },
-  { id: 21, nameKanji: "大谷翔平", choices: ["おおたにしょうへい", "おおたにしょうひ", "おおやしょうへい", "おおたにひろへい"], answerIndex: 1, description: "プロ野球選手。二刀流でMLB活躍中。", category: "スポーツ選手" },
+  { id: 21, nameKanji: "大谷翔平", choices: ["おおたにしょうへい", "おおたにしょうひ", "おおやしょうへい", "おおたにひろへい"], answerIndex: 0, description: "プロ野球選手。二刀流でMLB活躍中。", category: "スポーツ選手" },
   { id: 22, nameKanji: "徳川家康", choices: ["とくがわいえやす", "とくがわいえき", "とくかわいえやす", "とくがわひろやす"], answerIndex: 0, description: "江戸幕府初代将軍。戦国時代を終結させた。", category: "歴史人物" },
   { id: 23, nameKanji: "北野武", choices: ["きたのたけし", "きたのたかし", "きたのひろし", "きたのたけみ"], answerIndex: 0, description: "映画監督兼お笑い芸人。ビートたけしとして有名。", category: "監督" },
   { id: 24, nameKanji: "佐藤健", choices: ["さとうたける", "さとうけん", "さとうたけし", "さとうひろ"], answerIndex: 1, description: "俳優。ドラマ『るろうに剣心』で主演。", category: "俳優" },
   { id: 25, nameKanji: "石原さとみ", choices: ["いしはらさとみ", "いしはらさきみ", "いしはらさとこ", "いしはらみさと"], answerIndex: 0, description: "女優。ドラマやCMで活躍する美人女優。", category: "女優" },
-  { id: 26, nameKanji: "宇多田ヒカル", choices: ["うただひかる", "うただひかり", "うたたひかる", "うただみかる"], answerIndex: 3, description: "歌手。デビュー曲『Automatic』でブレイク。", category: "歌手" },
-  { id: 27, nameKanji: "杉田智和", choices: ["すぎたともかず", "すぎたともき", "すぎたひろかず", "すぎたともみ"], answerIndex: 3, description: "声優。アニメ『銀魂』の坂田銀時役。", category: "声優" },
-  { id: 28, nameKanji: "有吉弘行", choices: ["ありよしひろゆき", "ありよしひろき", "ありきちひろゆき", "ありよしたかゆき"], answerIndex: 2, description: "お笑い芸人。毒舌キャラでバラエティ活躍。", category: "お笑い芸人" },
-  { id: 29, nameKanji: "川上洋平", choices: ["かわかみようへい", "かわかみひろへい", "かわうえようへい", "かわかみようき"], answerIndex: 2, description: "ミュージシャン。アレキサンドロスのボーカル。", category: "歌手" },
-  { id: 30, nameKanji: "三浦知良", choices: ["みうらかずよし", "みうらかずき", "みうらともよし", "みうらかずみ"], answerIndex: 3, description: "サッカー選手。キングカズとして長年現役。", category: "スポーツ選手" },
-  { id: 31, nameKanji: "夏目漱石", choices: ["なつめそうせき", "なつめそうき", "なつめしゅうせき", "なつめそうみ"], answerIndex: 3, description: "小説家。『こころ』『坊っちゃん』の作者。", category: "作家" },
-  { id: 32, nameKanji: "庵野秀明", choices: ["あんのひであき", "あんのひでき", "あんのしゅうあき", "あんのひでみ"], answerIndex: 3, description: "アニメ監督。『エヴァンゲリオン』シリーズの生みの親。", category: "監督" },
+  { id: 26, nameKanji: "宇多田ヒカル", choices: ["うただひかる", "うただひかり", "うたたひかる", "うただみかる"], answerIndex: 0, description: "歌手。デビュー曲『Automatic』でブレイク。", category: "歌手" },
+  { id: 27, nameKanji: "杉田智和", choices: ["すぎたともかず", "すぎたともき", "すぎたひろかず", "すぎたともみ"], answerIndex: 0, description: "声優。アニメ『銀魂』の坂田銀時役。", category: "声優" },
+  { id: 28, nameKanji: "有吉弘行", choices: ["ありよしひろゆき", "ありよしひろき", "ありきちひろゆき", "ありよしたかゆき"], answerIndex: 0, description: "お笑い芸人。毒舌キャラでバラエティ活躍。", category: "お笑い芸人" },
+  { id: 29, nameKanji: "川上洋平", choices: ["かわかみようへい", "かわかみひろへい", "かわうえようへい", "かわかみようき"], answerIndex: 0, description: "ミュージシャン。アレキサンドロスのボーカル。", category: "歌手" },
+  { id: 30, nameKanji: "三浦知良", choices: ["みうらかずよし", "みうらかずき", "みうらともよし", "みうらかずみ"], answerIndex: 0, description: "サッカー選手。キングカズとして長年現役。", category: "スポーツ選手" },
+  { id: 31, nameKanji: "夏目漱石", choices: ["なつめそうせき", "なつめそうき", "なつめしゅうせき", "なつめそうみ"], answerIndex: 0, description: "小説家。『こころ』『坊っちゃん』の作者。", category: "作家" },
+  { id: 32, nameKanji: "庵野秀明", choices: ["あんのひであき", "あんのひでき", "あんのしゅうあき", "あんのひでみ"], answerIndex: 0, description: "アニメ監督。『エヴァンゲリオン』シリーズの生みの親。", category: "監督" },
   { id: 33, nameKanji: "本庶佑", choices: ["ほんじょたすく", "ほんじょゆう", "ほんしょたすく", "ほんじょひろ"], answerIndex: 0, description: "医学者。ノーベル生理学・医学賞受賞者。", category: "科学者" },
   { id: 34, nameKanji: "織田信長", choices: ["おだのぶなが", "おだのぶき", "おだしんのぶ", "おだのぶみ"], answerIndex: 0, description: "戦国大名。天下統一を目指した武将。", category: "歴史人物" },
-  { id: 35, nameKanji: "林修", choices: ["はやしおさむ", "はやししゅう", "はやしたかし", "はやしひろむ"], answerIndex: 1, description: "予備校講師。クイズ番組で人気の先生。", category: "その他文化人" },
-  { id: 36, nameKanji: "堺雅人", choices: ["さかいまさと", "さかいひろと", "さかいまさき", "さかいまさみ"], answerIndex: 1, description: "俳優。ドラマ『半沢直樹』で主演。", category: "俳優" },
+  { id: 35, nameKanji: "林修", choices: ["はやしおさむ", "はやししゅう", "はやしたかし", "はやしひろむ"], answerIndex: 0, description: "予備校講師。クイズ番組で人気の先生。", category: "その他文化人" },
+  { id: 36, nameKanji: "堺雅人", choices: ["さかいまさと", "さかいひろと", "さかいまさき", "さかいまさみ"], answerIndex: 0, description: "俳優。ドラマ『半沢直樹』で主演。", category: "俳優" },
   { id: 37, nameKanji: "広瀬すず", choices: ["ひろせすず", "ひろせすみ", "ひろせゆず", "ひろせさず"], answerIndex: 0, description: "女優。映画『海街diary』で注目。", category: "女優" },
   { id: 38, nameKanji: "嵐松本潤", choices: ["まつもとじゅん", "まつもとじゅう", "まつもとひろ", "まつもとたかし"], answerIndex: 1, description: "アイドルグループ嵐のメンバー。俳優としても活躍。", category: "タレント" },
   { id: 39, nameKanji: "椎名林檎", choices: ["しいなりんご", "しいなかりん", "しいなりんか", "しいなりんみ"], answerIndex: 0, description: "歌手。独自の音楽スタイルで人気。", category: "歌手" },

@@ -1,3 +1,4 @@
+//app/about/page.tsx
 export default function AboutPage() {
   return (
     <main className="max-w-2xl mx-auto p-6 text-slate-800">
@@ -22,6 +23,12 @@ export default function AboutPage() {
         表示される情報は公開データや一般的な知識に基づいており、誤りが含まれる可能性があります。
       </p>
 
+      <h2 className="text-xl font-semibold mt-6 mb-2">運営者情報</h2>
+      <p className="text-sm leading-relaxed mb-4">
+        運営：個人開発（JP Name Quiz）<br />
+        連絡：GitHub Issues よりご連絡ください
+      </p>
+      
       <h2 className="text-xl font-semibold mt-6 mb-2">お問い合わせ</h2>
       <p className="text-sm">
         内容の修正依頼や不具合報告がありましたら、GitHub リポジトリまたはご利用の連絡手段よりお知らせください。

@@ -1,3 +1,4 @@
+//app/layout.tsx
 import "./globals.css";
 import type { Metadata } from "next";
 import Script from "next/script";
@@ -51,8 +52,11 @@ export default function RootLayout({
         </div>
 
         {/* ------------------ FOOTER ------------------ */}
-        <footer className="w-full text-center text-xs text-slate-500 py-6 border-t border-slate-200">
-          © {new Date().getFullYear()} 読み方クイズ · All rights reserved.
+        <footer style={{ maxWidth: 860, margin: "24px auto", padding: "0 16px 24px", opacity: 0.8 }}>
+          <a href="/privacy" style={{ textDecoration: "underline" }}>Privacy</a>{" · "}
+          <a href="/terms" style={{ textDecoration: "underline" }}>Terms</a>{" · "}
+          <a href="/about" style={{ textDecoration: "underline" }}>About</a>{" · "}
+          <a href="/how-to-use" style={{ textDecoration: "underline" }}>How to Use</a>
         </footer>
       </body>
     </html>

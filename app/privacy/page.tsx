@@ -1,3 +1,4 @@
+//app/privacy/page.tsx
 export default function PrivacyPage() {
   return (
     <main className="max-w-2xl mx-auto p-6 text-slate-800">
@@ -44,6 +45,20 @@ export default function PrivacyPage() {
       <p className="text-sm">
         プライバシーに関するご質問がありましたら、お気軽にご連絡ください。
       </p>
+
+      <h2 className="text-xl font-semibold mt-6 mb-2">ユーザーの選択</h2>
+      <p className="text-sm mb-4 leading-relaxed">
+        ユーザーはブラウザの設定により Cookie を無効化または削除できます。
+        Cookie を無効化した場合、一部の機能が正しく動作しない可能性があります。
+      </p>
+
+      <h2 className="text-xl font-semibold mt-6 mb-2">第三者提供</h2>
+      <p className="text-sm mb-4 leading-relaxed">
+        本サイトは、広告配信および計測のために第三者（Google 等）へ情報が送信される場合があります。
+        送信される情報の取扱いは各事業者のポリシーに従います。
+      </p>
+
+
     </main>
   );
 }
